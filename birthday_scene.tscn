@@ -1,0 +1,186 @@
+[gd_scene load_steps=15 format=3 uid="uid://bpbqjemlmmaeo"]
+
+[ext_resource type="Script" path="res://birthday_scene.gd" id="1_mh5pe"]
+[ext_resource type="Texture2D" uid="uid://cokroqt4ogmr7" path="res://mia_back.jpg" id="2_2318u"]
+[ext_resource type="AudioStream" uid="uid://dnvgqg3jva0ap" path="res://bday_song_polish.wav" id="3_03jdw"]
+[ext_resource type="AudioStream" uid="uid://q7odf537ar6t" path="res://walk.wav" id="4_1p7wv"]
+[ext_resource type="AudioStream" uid="uid://dcosnoncb6nxd" path="res://hbday_mom.wav" id="5_sfgr5"]
+[ext_resource type="AudioStream" uid="uid://bp2a2du1wgtsq" path="res://bday_darling.wav" id="6_y5ab5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_03h7o"]
+load_path = "res://.godot/imported/photo_2024-07-12_20-41-30-removebg-preview.png-2a5372bf44b8fac3f665be14e6926730.ctex"
+
+[sub_resource type="Animation" id="Animation_h34s3"]
+resource_name = "d_bday"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, -0.523599, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hk5xg"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rw0l6"]
+resource_name = "m_bday"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.523599, 0.523599, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_s85kx"]
+resource_name = "polish_greeting"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -285), Vector2(0, -275), Vector2(0, -285), Vector2(0, -275)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, 0.0, -0.261799]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_276kh"]
+resource_name = "walk"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -285), Vector2(0, -275)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xsm6g"]
+_data = {
+"d_bday": SubResource("Animation_h34s3"),
+"idle": SubResource("Animation_hk5xg"),
+"m_bday": SubResource("Animation_rw0l6"),
+"polish_greeting": SubResource("Animation_s85kx"),
+"walk": SubResource("Animation_276kh")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6jpdq"]
+load_path = "res://.godot/imported/dima-removebg-preview.png-832fe165fd2d856ed327b8b5cbc97c10.ctex"
+
+[node name="BirthdayScene" type="Node2D"]
+script = ExtResource("1_mh5pe")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 320.0
+offset_top = 379.0
+offset_right = 1528.0
+offset_bottom = 2300.0
+rotation = 1.5708
+pivot_offset = Vector2(989, 614)
+texture = ExtResource("2_2318u")
+stretch_mode = 6
+
+[node name="Mia" type="Sprite2D" parent="."]
+position = Vector2(-101, 1100)
+texture = SubResource("CompressedTexture2D_03h7o")
+offset = Vector2(0, -285)
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mia"]
+libraries = {
+"": SubResource("AnimationLibrary_xsm6g")
+}
+
+[node name="Dima" type="Sprite2D" parent="."]
+position = Vector2(2036, 1100)
+texture = SubResource("CompressedTexture2D_6jpdq")
+offset = Vector2(0, -285)
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dima"]
+libraries = {
+"": SubResource("AnimationLibrary_xsm6g")
+}
+
+[node name="BdaySong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_03jdw")
+max_polyphony = 2
+
+[node name="GreetingTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1p7wv")
+
+[node name="MiaIntro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_sfgr5")
+
+[node name="DimaIntro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_y5ab5")
+
+[node name="MiaIntroTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="DimaIntroTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
