@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpbqjemlmmaeo"]
+[gd_scene load_steps=16 format=3 uid="uid://bpbqjemlmmaeo"]
 
 [ext_resource type="Script" path="res://birthday_scene.gd" id="1_mh5pe"]
 [ext_resource type="Texture2D" uid="uid://cokroqt4ogmr7" path="res://mia_back.jpg" id="2_2318u"]
@@ -126,21 +126,37 @@ _data = {
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6jpdq"]
 load_path = "res://.godot/imported/dima-removebg-preview.png-832fe165fd2d856ed327b8b5cbc97c10.ctex"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5741"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0, 0, 0, 0.784314)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [node name="BirthdayScene" type="Node2D"]
 script = ExtResource("1_mh5pe")
 
 [node name="Background" type="TextureRect" parent="."]
-offset_left = 320.0
-offset_top = 379.0
-offset_right = 1528.0
-offset_bottom = 2300.0
+offset_left = 319.0
+offset_top = 376.0
+offset_right = 1393.0
+offset_bottom = 2299.0
 rotation = 1.5708
 pivot_offset = Vector2(989, 614)
 texture = ExtResource("2_2318u")
+expand_mode = 1
 stretch_mode = 6
 
 [node name="Mia" type="Sprite2D" parent="."]
-position = Vector2(-101, 1100)
+position = Vector2(-120, 1000)
 texture = SubResource("CompressedTexture2D_03h7o")
 offset = Vector2(0, -285)
 flip_h = true
@@ -151,7 +167,7 @@ libraries = {
 }
 
 [node name="Dima" type="Sprite2D" parent="."]
-position = Vector2(2036, 1100)
+position = Vector2(2050, 1000)
 texture = SubResource("CompressedTexture2D_6jpdq")
 offset = Vector2(0, -285)
 flip_h = true
@@ -184,3 +200,14 @@ one_shot = true
 [node name="DimaIntroTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Start" type="Button" parent="."]
+offset_left = 586.0
+offset_top = 432.0
+offset_right = 1305.0
+offset_bottom = 599.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_x5741")
+text = "Happy Birthday, Kate from the loving family!
+
+(press here to start)"
